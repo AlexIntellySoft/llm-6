@@ -558,7 +558,7 @@
    ],
    "id": "A2",
    "type": "aggregation",
-   "showcase": true,
+   "showcase": false,
    "grade": {
     "id": "A2",
     "type": "aggregation",
@@ -1297,7 +1297,7 @@
    ],
    "id": "A2",
    "type": "aggregation",
-   "showcase": true,
+   "showcase": false,
    "grade": {
     "id": "A2",
     "type": "aggregation",

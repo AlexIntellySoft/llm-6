@@ -555,13 +555,17 @@
     "printed": 6,
     "mentioned": [
      8,
-     8
+     9,
+     8,
+     9
     ],
     "kinds": [
      "physical",
-     "physical"
+     "other",
+     "physical",
+     "other"
     ],
-    "verdict": "correct"
+    "verdict": "mixed"
    }
   },
   {
@@ -1025,13 +1029,17 @@
     "printed": 6,
     "mentioned": [
      8,
-     8
+     9,
+     8,
+     9
     ],
     "kinds": [
      "physical",
-     "physical"
+     "other",
+     "physical",
+     "other"
     ],
-    "verdict": "correct"
+    "verdict": "mixed"
    }
   },
   {
@@ -1484,10 +1492,12 @@
     "physical": 8,
     "printed": 6,
     "mentioned": [
-     6
+     6,
+     7
     ],
     "kinds": [
-     "printed"
+     "printed",
+     "other"
     ],
     "verdict": "printed"
    }

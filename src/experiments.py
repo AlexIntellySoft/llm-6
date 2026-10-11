@@ -1,7 +1,7 @@
 """Эксперименты. Каждый пишет outputs/<имя>.json; ноутбук строится из этих файлов.
 
     python -m src.experiments retrieval   # chunk_size × стратегия → точность страницы (без LLM)
-    python -m src.experiments main        # 12 вопросов, строгий и базовый промпты
+    python -m src.experiments main        # 15 вопросов, строгий и базовый промпты
     python -m src.experiments long        # теряются ли ссылки в длинном ответе
     python -m src.experiments pages       # «на какой странице?» при колонтитулах и оглавлении в контексте
     python -m src.experiments chunks_llm  # крупные «сквозные» чанки → цитируемая страница
@@ -194,12 +194,13 @@ PAGE_CONFIGS = {
     "naive_nometa": (ChunkConfig(chunk_size=1000, chunk_overlap=100, strategy="naive",
                                  clean=False), "strict", False),
 }
-_PAGE_MENTION = re.compile(r"(?:стр\.?|страниц\w*)\s*(\d{1,3})", re.I)
+# «стр. 6», «странице 4», а также перечни «стр. 6, 7» / «стр. 6–7»
+_PAGE_MENTION = re.compile(r"(?:стр\.?|страниц\w*)\s*(\d{1,3}(?:\s*(?:,|–|-|и)\s*\d{1,3})*)", re.I)
 
 
 def page_verdict(text: str, source: str, physical: int) -> dict:
     """Какие номера страниц прозвучали в ответе и чем они являются."""
-    nums = [int(n) for n in _PAGE_MENTION.findall(text)]
+    nums = [int(n) for group in _PAGE_MENTION.findall(text) for n in re.findall(r"\d+", group)]
     printed = physical - config.FRONT_PAGES
     kinds = ["physical" if n == physical else "printed" if n == printed else "other" for n in nums]
     return {"physical": physical, "printed": printed, "mentioned": nums, "kinds": kinds,

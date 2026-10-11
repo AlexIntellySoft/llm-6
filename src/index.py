@@ -23,6 +23,9 @@ from src.parsing import load_corpus, naive_corpus
 def embedder():
     import torch
     from sentence_transformers import SentenceTransformer
+    from transformers.utils import logging as hf_logging
+
+    hf_logging.disable_progress_bar()          # «Loading weights» не нужен в выводе ноутбука
 
     device = "mps" if torch.backends.mps.is_available() else "cpu"
     return SentenceTransformer(config.EMBED_MODEL, device=device)
