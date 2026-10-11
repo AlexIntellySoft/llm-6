@@ -1,0 +1,17 @@
+# секреты: ключ YandexGPT
+.env
+
+# векторная база пересобирается одной командой: python -m src.index
+data/chroma/
+
+# окружение
+.venv/
+__pycache__/
+*.py[cod]
+
+# кэши, IDE и системный мусор
+.ipynb_checkpoints/
+.vscode/
+.idea/
+.DS_Store
+*.log

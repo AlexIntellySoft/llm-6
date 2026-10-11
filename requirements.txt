@@ -1,0 +1,25 @@
+# Парсинг: PDF — PyMuPDF, HTML — BeautifulSoup
+pymupdf>=1.26
+beautifulsoup4>=4.12
+lxml>=5.0
+
+# Сборка PDF-сборников из markdown (tools/build_corpus.py)
+reportlab>=4.0
+
+# Чанкование, эмбеддинги, векторная база
+langchain-text-splitters>=1.0,<2
+sentence-transformers>=5.0
+torch>=2.4
+chromadb>=1.0,<2
+
+# YandexGPT через OpenAI-совместимый API
+openai>=1.40
+python-dotenv>=1.0
+
+# Отчёт
+pandas>=2.2
+matplotlib>=3.8
+nbformat>=5.10
+nbconvert>=7.16
+jupyter>=1.0
+ipykernel>=6.29
